@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="419d8f3de27e4f4caec6610aa6a3ed89" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="BAModel.Activity" Width="1.5" PointX="6.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BAModel.Address" Width="1.5" PointX="0.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BAModel.Contact" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BAModel.ContactPersonalInfo" Width="1.5" PointX="2.5" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BAModel.Customer" Width="2.125" PointX="3.375" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BAModel.CustomerType" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BAModel.Equipment" Width="1.5" PointX="9.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BAModel.Trip" Width="1.5" PointX="6.625" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BAModel.Destination" Width="1.5" PointX="9.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BAModel.Lodging" Width="1.5" PointX="11.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BAModel.OldReservation" Width="1.5" PointX="6.25" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BAModel.Payment" Width="1.5" PointX="3.625" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="BAModel.Reservation" Width="1.5" PointX="3.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BAModel.sysdiagram" Width="1.5" PointX="0.5" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BAModel.CustomersinPastYear" Width="1.5" PointX="4.375" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BAModel.vOfficeAddress" Width="1.5" PointX="9.625" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BAModel.vPaymentsforPeriod" Width="1.5" PointX="7.75" PointY="10.375" IsExpanded="true" />
+        <AssociationConnector Association="BAModel.FK_PrimaryPrefs_Activities" ManuallyRouted="false" />
+        <AssociationConnector Association="BAModel.FK_Customers_SecondaryActivities" ManuallyRouted="false" />
+        <AssociationConnector Association="BAModel.FK_Address_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="BAModel.FK_Customers_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="BAModel.FK_Lodging_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="BAModel.FK_Customers_CustomerTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="BAModel.FK_Customers_Locations" ManuallyRouted="false" />
+        <AssociationConnector Association="BAModel.FK_Customers_Locations1" ManuallyRouted="false" />
+        <AssociationConnector Association="BAModel.FK_Reservations_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="BAModel.FK_Events_Locations" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="BAModel.FK_Events_Lodging" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="BAModel.FK_Reservations_Events" ManuallyRouted="false" />
+        <AssociationConnector Association="BAModel.FK_Lodging_Destinations" ManuallyRouted="false" />
+        <AssociationConnector Association="BAModel.FK_Payments_Reservations" ManuallyRouted="false" />
+        <AssociationConnector Association="BAModel.ActivityEquipment" ManuallyRouted="false" />
+        <AssociationConnector Association="BAModel.EventActivities" ManuallyRouted="false" >
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

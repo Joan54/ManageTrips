@@ -1,0 +1,155 @@
+﻿<Window
+    x:Class="WpfApp.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:baModel="clr-namespace:BAModel;assembly=BreakAwayModel"
+    xmlns:converters="clr-namespace:WpfApp.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="ManageTrips"
+    Width="550"
+    Height="350"
+    DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
+    mc:Ignorable="d">
+
+    <Window.Resources>
+
+        <converters:TrimStringConverter x:Key="TrimString" />
+
+        <DataTemplate x:Key="TripListTemplate" DataType="baModel:Trip">
+            <StackPanel Margin="10,0,10,0" Orientation="Horizontal">
+                <TextBlock Text="{Binding Path=StartDate, StringFormat='{}{0:MM/dd/yyyy}', Mode=OneWay}" />
+                <TextBlock Text=", " />
+                <TextBlock FontWeight="bold" Text="{Binding Path=Destination.Name, Mode=OneWay, Converter={StaticResource TrimString}}" />
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="4*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="2*" />
+
+        </Grid.ColumnDefinitions>
+
+        <ListBox
+            Grid.Row="0"
+            Grid.Column="0"
+            Margin="5"
+            ItemTemplate="{StaticResource TripListTemplate}"
+            ItemsSource="{Binding TripListViewSource.View}"
+            SelectedItem="{Binding SelectedTrip}" />
+
+        <StackPanel
+            Grid.Row="0"
+            Grid.Column="1"
+            Height="106"
+            Margin="5,0,10,0"
+            VerticalAlignment="Top"
+            Orientation="Vertical">
+
+            <Button
+                Width="150"
+                Margin="10"
+                Command="{Binding CreateNewTripCmd}">
+                Create New Trip
+            </Button>
+            <Button
+                Width="150"
+                Margin="10"
+                Command="{Binding SaveTripCmd}">
+                Save Trip
+            </Button>
+
+        </StackPanel>
+
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="0"
+            Orientation="Horizontal">
+            <Label VerticalAlignment="Center" Content="Start Date" />
+            <TextBlock VerticalAlignment="Center" Text="{Binding StartDate, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+
+        </StackPanel>
+
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="1"
+            Orientation="Horizontal">
+            <Label VerticalAlignment="Center" Content="End Date" />
+            <TextBlock VerticalAlignment="Center" Text="{Binding EndDate, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+
+        </StackPanel>
+
+        <StackPanel
+            Grid.Row="2"
+            Grid.Column="0"
+            Margin="0"
+            VerticalAlignment="Center"
+            Orientation="Vertical">
+            <Label Content="Destination:" />
+            <ComboBox
+                Margin="5,0"
+                DisplayMemberPath="Name"
+                ItemsSource="{Binding DestinationViewSource.View}"
+                SelectedItem="{Binding SelectedDestination}" />
+
+        </StackPanel>
+
+        <StackPanel
+            Grid.Row="2"
+            Grid.Column="1"
+            Margin="0"
+            VerticalAlignment="Center"
+            Orientation="Vertical">
+            <Label Content="Lodgings:" />
+            <ComboBox
+                Margin="5,0"
+                DisplayMemberPath="LodgingName"
+                ItemsSource="{Binding LodgingsViewSource.View}"
+                SelectedItem="{Binding SelectedLodging}" />
+
+        </StackPanel>
+
+        <DockPanel
+            Grid.Row="3"
+            Grid.Column="0"
+            LastChildFill="True">
+            <Label Content="Activities on this Trip:" DockPanel.Dock="Top" />
+            <ListBox
+                Margin="5"
+                DisplayMemberPath="Name"
+                DockPanel.Dock="Top"
+                ItemsSource="{Binding TripActivityList}" />
+
+        </DockPanel>
+
+        <StackPanel
+            Grid.Row="3"
+            Grid.Column="1"
+            Orientation="Vertical">
+            <Label Content="Activities:" />
+            <ComboBox
+                Margin="5,0"
+                DisplayMemberPath="Name"
+                ItemsSource="{Binding ActivityViewSource.View}"
+                SelectedItem="{Binding SelectedActivity}" />
+            <Button
+                Width="150"
+                Margin="0,15,0,0"
+                Command="{Binding AddActivityCmd}">
+                Add Activity to Trip
+            </Button>
+
+        </StackPanel>
+
+    </Grid>
+</Window>
